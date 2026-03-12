@@ -1,0 +1,74 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "======================================"
+echo "CORREÇÃO DEFINITIVA DO GRADLE ANDROID"
+echo "======================================"
+
+PROJECT=~/GlobalStreamVPN
+APP=$PROJECT/app
+
+cd $PROJECT || exit
+
+echo "--------------------------------------"
+echo "Recriando build.gradle do APP"
+echo "--------------------------------------"
+
+cat > $APP/build.gradle <<'EOF'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.globalstreamvpn'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.globalstreamvpn"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+}
+EOF
+
+echo "build.gradle recriado"
+
+echo "--------------------------------------"
+echo "Limpando projeto"
+echo "--------------------------------------"
+
+./gradlew clean
+
+echo "--------------------------------------"
+echo "Compilando APK"
+echo "--------------------------------------"
+
+./gradlew assembleDebug
+
+echo "======================================"
+echo "FINALIZADO"
+echo "======================================"
+
+echo "Se compilou sem erro o APK está em:"
+echo "app/build/outputs/apk/debug/app-debug.apk"

@@ -1,0 +1,44 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.globalstreamvpn"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <application
+11-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:4:5-23:19
+12        android:allowBackup="true"
+12-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:5:9-35
+13        android:debuggable="true"
+14        android:extractNativeLibs="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:7:9-43
+16        android:label="GlobalStreamVPN"
+16-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:6:9-40
+17        android:roundIcon="@mipmap/ic_launcher"
+17-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:8:9-48
+18        android:supportsRtl="true" >
+18-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:9:9-35
+19        <activity
+19-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:11:9-21:20
+20            android:name="com.globalstreamvpn.MainActivity"
+20-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:12:13-41
+21            android:exported="true" >
+21-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:13:13-36
+22            <intent-filter>
+22-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:15:13-19:29
+23                <action android:name="android.intent.action.MAIN" />
+23-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:16:17-68
+23-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:16:25-66
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:17:17-76
+25-->/data/data/com.termux/files/home/GlobalStreamVPN/app/src/main/AndroidManifest.xml:17:27-74
+26            </intent-filter>
+27        </activity>
+28    </application>
+29
+30</manifest>

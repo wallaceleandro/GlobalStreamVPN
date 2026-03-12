@@ -1,0 +1,36 @@
+#!/bin/bash
+echo "======================================"
+echo "FINAL SETUP: Adicionando ícones do launcher e ajustando AndroidManifest"
+echo "======================================"
+
+# Caminho do projeto Android
+PROJECT_DIR="$PWD/GlobalStreamVPN"
+
+# Cria pastas de mipmap se não existirem
+for DENSITY in mdpi hdpi xhdpi xxhdpi xxxhdpi anydpi-v26; do
+    mkdir -p "$PROJECT_DIR/app/src/main/res/mipmap-$DENSITY"
+done
+
+# Baixa um ícone padrão PNG (48x48) e cria cópias para todas densidades
+ICON_URL="https://via.placeholder.com/48.png?text=VPN"
+for DENSITY in mdpi hdpi xhdpi xxhdpi xxxhdpi anydpi-v26; do
+    wget -O "$PROJECT_DIR/app/src/main/res/mipmap-$DENSITY/ic_launcher.png" $ICON_URL
+done
+
+# Cria ic_launcher_round (usado por Android)
+for DENSITY in mdpi hdpi xhdpi xxhdpi xxxhdpi anydpi-v26; do
+    wget -O "$PROJECT_DIR/app/src/main/res/mipmap-$DENSITY/ic_launcher_round.png" $ICON_URL
+done
+
+# Ajusta AndroidManifest.xml
+MANIFEST="$PROJECT_DIR/app/src/main/AndroidManifest.xml"
+
+# Remove package antigo (deprecated) e adiciona android:exported
+sed -i 's/package="com.globalstreamvpn"//g' $MANIFEST
+sed -i '/<activity android:name="com.globalstreamvpn.MainActivity"/a \    android:exported="true"' $MANIFEST
+
+echo "======================================"
+echo "Ícones adicionados e AndroidManifest ajustado!"
+echo "Agora você pode rodar o build do APK:"
+echo "./gradlew clean assembleDebug"
+echo "======================================"
