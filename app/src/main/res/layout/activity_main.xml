@@ -9,7 +9,8 @@
 
     <TextView
         android:text="GlobalStreamVPN"
-        android:textSize="24sp"
+        android:textSize="26sp"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
