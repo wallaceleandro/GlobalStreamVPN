@@ -1,3 +1,18 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "======================================"
+echo "CORRIGINDO LAYOUT DO APP"
+echo "GlobalStreamVPN"
+echo "======================================"
+
+PROJECT=~/GlobalStreamVPN
+LAYOUT=$PROJECT/app/src/main/res/layout
+
+mkdir -p $LAYOUT
+
+echo "Recriando activity_main.xml..."
+
+cat > $LAYOUT/activity_main.xml <<'EOF'
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
@@ -31,3 +46,17 @@
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
+EOF
+
+echo "--------------------------------------"
+echo "Limpando cache do Gradle"
+echo "--------------------------------------"
+
+cd $PROJECT
+
+./gradlew clean
+
+echo "======================================"
+echo "LAYOUT CORRIGIDO"
+echo "======================================"
+echo "Agora envie novamente para o GitHub"
